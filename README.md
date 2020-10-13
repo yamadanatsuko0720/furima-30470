@@ -11,23 +11,23 @@
 | birthday         | date   | null: false |
 
 ### Association
-- has_many :item
+- has_many :items
 - has_one :item_transaction
 
 
 
 ## items テーブル
-| Column           | Type       | Options                        |
-| ---------------- | ---------- | -------------------------------|
-| name             | string     | null: false                    |
-| text             | text       | null: false                    |
-| category         | string     | null: false                    |
-| status           | string     | null: false                    |
-| condition        | string     | null: false                    |
-| prefecture       | string     | null: false                    |
-| preparation_day  | string     | null: false                    |
-| price            | integer    | null: false                    |
-| user             | references | null: false, foreign_key: true |
+| Column              | Type       | Options                        |
+| --------------------| ---------- | -------------------------------|
+| name                | string     | null: false                    |
+| text                | text       | null: false                    |
+| category_id         | integer    | null: false, foreign_key: true |
+| status_id           | integer    | null: false, foreign_key: true |
+| condition_id        | integer    | null: false, foreign_key: true |
+| prefecture_id       | integer    | null: false, foreign_key: true |
+| preparation_day_id  | integer    | null: false, foreign_key: true |
+| price               | integer    | null: false                    |
+| user                | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
