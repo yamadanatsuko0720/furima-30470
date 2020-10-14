@@ -89,6 +89,16 @@ describe User do
         @user.valid?
         expect(@user.errors.full_messages).to include("Birth date can't be blank")
       end
+      it "first_name_kanaがカタカナ意外だと登録できない" do
+        @user.first_name_kana = "太郎"
+        @user.valid?
+        expect(@user.errors.full_messages).to include("First name kana is invalid")
+      end
+      it "last_name_kanaがカタカナ意外だと登録できない" do
+        @user.last_name_kana = "山田"
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Last name kana is invalid")
+      end
     end
   end
 end
