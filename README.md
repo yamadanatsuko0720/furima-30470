@@ -22,7 +22,7 @@
 | name                | string     | null: false                    |
 | text                | text       | null: false                    |
 | category_id         | integer    | null: false, foreign_key: true |
-| status_id           | integer    | null: false, foreign_key: true |
+| postage_payer_id           | integer    | null: false, foreign_key: true |
 | condition_id        | integer    | null: false, foreign_key: true |
 | prefecture_id       | integer    | null: false, foreign_key: true |
 | preparation_day_id  | integer    | null: false, foreign_key: true |
