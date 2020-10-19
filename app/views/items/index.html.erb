@@ -127,10 +127,10 @@
     <ul class='item-lists'>
     <% if @items.any? %>
       <% @items.each do |item| %>
-        <%= link_to "#" do %>
-          <div class='item-img-content'>
-            <li class='list'>
-              <%= image_tag item.image, class: "item-img" %>            
+        <li class='list'>
+          <%= link_to item_path(item.id) do %>
+            <div class='item-img-content'>
+              <%= image_tag item.image, class: "item-img" %>
           <%# 商品が売れていればsold outを表示しましょう %>
           <%# <div class='sold-out'>
             <span>Sold Out!!</span>
@@ -148,8 +148,8 @@
                 <span class='star-count'>0</span>
               </div>
             </div>
-            </li>
           </div>
+        </li>
         <% end %>
       <% end %>
       <%# 商品がない場合のダミー %>
