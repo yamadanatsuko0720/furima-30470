@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :move_to_index, except: [:index, :new]
+  before_action :move_to_index, except: [:index, :new, :show]
 
   def index
     @items = Item.all.order("created_at DESC")
