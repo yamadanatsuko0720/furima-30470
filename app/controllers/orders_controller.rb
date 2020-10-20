@@ -1,22 +1,23 @@
 class OrdersController < ApplicationController
   
   def index
-    @item = Item.find(params[:id])
+    @item = Item.find(params[:item_id])
+    # @item = Item.find
   end
 
-  def create
-    @order = Order.new(order_params)
-    if @order.valid?
-      @order.save
-      return redirect_to root_path
-    else
-      render 'new'
-    end
-  end
+  # def create
+  #   @order = Order.new(order_params)
+  #   if @order.valid?
+  #     @order.save
+  #     return redirect_to root_path
+  #   else
+  #     render 'new'
+  #   end
+  # end
 
-  private
+  # private
 
-  def order_params
-    params.require(:order).permit(:price)
-  end
+  # def order_params
+  #   params.require(:order).permit(:price)
+  # end
 end
