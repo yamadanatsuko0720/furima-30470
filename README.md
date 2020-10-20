@@ -22,7 +22,7 @@
 | name                | string     | null: false                    |
 | text                | text       | null: false                    |
 | category_id         | integer    | null: false, foreign_key: true |
-| postage_payer_id           | integer    | null: false, foreign_key: true |
+| postage_payer_id    | integer    | null: false, foreign_key: true |
 | condition_id        | integer    | null: false, foreign_key: true |
 | prefecture_id       | integer    | null: false, foreign_key: true |
 | preparation_day_id  | integer    | null: false, foreign_key: true |
@@ -31,11 +31,11 @@
 
 ### Association
 - belongs_to :user
-- has_one :item_transaction
+- has_one :order
 
 
 
-## item_transactions テーブル
+## orders テーブル
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | -------------------------------|
 | item             | references | null: false, foreign_key: true |
@@ -44,11 +44,11 @@
 ### Association
 - belongs_to :item
 - belongs_to :user
-- has_one :sending_destination
+- has_one :address
 
 
 
-## sending_destinationテーブル
+## addressesテーブル
 | Column            | Type       | Options                        |
 | ------------------| ---------- | -------------------------------|
 | post_code         | string     | null: false                    |
@@ -57,9 +57,9 @@
 | house_number      | string     | null: false                    |
 | building_name     | string     |                                |
 | phone_number      | string     | null: false                    |
-| item_transaction  | references | null: false, foreign_key: true |
+| order             | references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :item_transaction
+- belongs_to :order
 - belongs_to_active_hash :prefecture
 
