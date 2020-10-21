@@ -11,6 +11,10 @@ RSpec.describe OrderAddress, type: :model do
       it "tokenと送付先の必須項目が存在すれば購入できる" do
         expect(@order_address).to be_valid
       end
+      it "建物名がなくても購入できる" do
+        @order_address.building_name = ""
+        expect(@order_address).to be_valid
+      end
     end
 
     context '購入がうまくいかないとき' do
@@ -60,24 +64,6 @@ RSpec.describe OrderAddress, type: :model do
         expect(@order_address.errors.full_messages).to include("Phone number is invalid. Input half-width characters.")
       end
     end
-
-
-
-
-
-
-
-
-
-
   end
-
-
-
-
-
-
-
-
   end
 end

@@ -5,7 +5,7 @@ FactoryBot.define do
     prefecture_id {"2"}
     city {"目黒区"}
     house_number {"1-1-1"}
+    building_name{"てすと"}
     phone_number {"09012345678"}
-    # association :item
   end
 end

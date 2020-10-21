@@ -1,16 +1,13 @@
 class OrdersController < ApplicationController
   before_action :move_to_top, only: [:index]
   before_action :move_to_root, only: [:index]
+  before_action :set_item, only: [:index, :create]
 
-
-  
   def index
-    @item = Item.find(params[:item_id])
     @order_address = OrderAddress.new
   end
 
   def create
-    @item = Item.find(params[:item_id])
     @order_address = OrderAddress.new(address_params)  
     if @order_address.valid?
        pay_item
@@ -19,11 +16,13 @@ class OrdersController < ApplicationController
     else
       render action: :index
     end
-
-    
   end
 
   private
+
+  def set_item
+    @item = Item.find(params[:item_id])
+  end
 
   def address_params
     params.require(:order_address).permit(:post_code, :prefecture_id, :city, :house_number, :building_name, :phone_number, :user_id).merge(token: params[:token], item_id: params[:item_id], user_id: current_user.id)
@@ -51,5 +50,4 @@ class OrdersController < ApplicationController
       redirect_to root_path
     end
   end
-
 end
